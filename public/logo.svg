@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <!-- Shield outline -->
+  <path d="M400 80 L630 150 L630 420 Q630 550 400 720 Q170 550 170 420 L170 150 Z" 
+        fill="#FFF8E7" stroke="#D4A847" stroke-width="8"/>
+  
+  <!-- Green landscape layers -->
+  <path d="M200 480 Q250 460 300 470 Q350 480 400 475 Q450 470 500 475 Q550 480 600 470 L600 550 L200 550 Z" 
+        fill="#4A6B5C"/>
+  <path d="M200 420 Q250 400 300 410 Q350 420 400 415 Q450 410 500 415 Q550 420 600 410 L600 480 L200 480 Z" 
+        fill="#5E8270"/>
+  <path d="M200 370 Q250 350 300 360 Q350 370 400 365 Q450 360 500 365 Q550 370 600 360 L600 420 L200 420 Z" 
+        fill="#7A9981"/>
+  
+  <!-- Golden path -->
+  <path d="M400 370 Q380 400 370 430 Q365 450 360 470 Q358 490 355 510 Q353 530 350 550 
+           M400 370 Q420 400 430 430 Q435 450 440 470 Q442 490 445 510 Q447 530 450 550" 
+        stroke="#D4A847" stroke-width="25" fill="none" stroke-linecap="round"/>
+  <path d="M370 380 Q390 400 400 420 Q410 400 430 380 
+           M365 420 Q385 440 400 460 Q415 440 435 420
+           M360 460 Q380 480 400 500 Q420 480 440 460" 
+        stroke="#F4E4B7" stroke-width="12" fill="none" stroke-linecap="round"/>
+  
+  <!-- House -->
+  <g transform="translate(400, 180)">
+    <!-- House body -->
+    <rect x="-60" y="30" width="120" height="100" fill="#E07856" rx="5"/>
+    <!-- Roof -->
+    <path d="M-80 30 L0 -20 L80 30 Z" fill="#D86647" stroke="#C55540" stroke-width="3"/>
+    <!-- Chimney -->
+    <rect x="40" y="-5" width="20" height="25" fill="#C55540"/>
+    <!-- Windows -->
+    <rect x="-35" y="60" width="25" height="30" fill="#2C4A3E" rx="3"/>
+    <rect x="10" y="60" width="25" height="30" fill="#2C4A3E" rx="3"/>
+    <!-- Window cross -->
+    <line x1="-35" y1="75" x2="-10" y2="75" stroke="#5E8270" stroke-width="2"/>
+    <line x1="-22.5" y1="60" x2="-22.5" y2="90" stroke="#5E8270" stroke-width="2"/>
+    <line x1="10" y1="75" x2="35" y2="75" stroke="#5E8270" stroke-width="2"/>
+    <line x1="22.5" y1="60" x2="22.5" y2="90" stroke="#5E8270" stroke-width="2"/>
+    <!-- Door would be covered by text, so omitting -->
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="670" font-family="Georgia, serif" font-size="85" font-style="italic" 
+        fill="#2C4A3E" text-anchor="middle" font-weight="bold">GuidedPath</text>
+  <g>
+    <line x1="240" y1="700" x2="360" y2="700" stroke="#D4A847" stroke-width="3"/>
+    <line x1="440" y1="700" x2="560" y2="700" stroke="#D4A847" stroke-width="3"/>
+  </g>
+  <text x="400" y="740" font-family="Georgia, serif" font-size="70" font-style="italic" 
+        fill="#E07856" text-anchor="middle" font-weight="normal">Homes</text>
+</svg>

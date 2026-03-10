@@ -1,0 +1,244 @@
+.privacy-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.privacy-modal-content {
+  background: white;
+  border-radius: 25px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Custom Scrollbar */
+.privacy-modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.privacy-modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 25px 25px 0;
+}
+
+.privacy-modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0F4C4C 0%, #F1C40F 100%);
+  border-radius: 10px;
+}
+
+.privacy-modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F1C40F 0%, #0F4C4C 100%);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.privacy-close-button {
+  position: sticky;
+  top: 20px;
+  right: 20px;
+  float: right;
+  background: linear-gradient(135deg, #FF7F50 0%, #ff6b3d 100%);
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(255, 127, 80, 0.4);
+  z-index: 10;
+  margin-bottom: -45px;
+}
+
+.privacy-close-button:hover {
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 127, 80, 0.6);
+  background: linear-gradient(135deg, #ff6b3d 0%, #FF7F50 100%);
+}
+
+.privacy-modal-body {
+  padding: 60px;
+  clear: both;
+}
+
+.privacy-title {
+  font-size: 2.5rem;
+  color: #0F4C4C;
+  margin-bottom: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.privacy-effective {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.privacy-intro {
+  margin-bottom: 35px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  padding: 20px;
+  background: rgba(241, 196, 15, 0.08);
+  border-left: 4px solid #F1C40F;
+  border-radius: 8px;
+}
+
+.privacy-item {
+  margin-bottom: 35px;
+}
+
+.privacy-item h2 {
+  font-size: 1.6rem;
+  color: #0F4C4C;
+  margin-bottom: 15px;
+  font-weight: 600;
+  border-bottom: 2px solid #F1C40F;
+  padding-bottom: 10px;
+}
+
+.privacy-item p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.privacy-item ul {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+.privacy-item ul li {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 8px;
+  list-style-type: disc;
+}
+
+.privacy-contact {
+  margin-top: 45px;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(15, 76, 76, 0.05) 0%, rgba(241, 196, 15, 0.05) 100%);
+  border-radius: 15px;
+  border: 2px solid rgba(15, 76, 76, 0.15);
+}
+
+.privacy-contact h2 {
+  font-size: 1.8rem;
+  color: #0F4C4C;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.contact-details {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #333;
+}
+
+.contact-details p {
+  margin-bottom: 8px;
+}
+
+.contact-details a {
+  color: #FF7F50;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+  color: #0F4C4C;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .privacy-modal-body {
+    padding: 40px 30px;
+  }
+
+  .privacy-title {
+    font-size: 1.8rem;
+  }
+
+  .privacy-item h2 {
+    font-size: 1.3rem;
+  }
+
+  .privacy-close-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-modal-body {
+    padding: 30px 20px;
+  }
+
+  .privacy-title {
+    font-size: 1.5rem;
+  }
+
+  .privacy-effective {
+    font-size: 0.9rem;
+  }
+
+  .privacy-intro {
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  .privacy-item h2 {
+    font-size: 1.2rem;
+  }
+
+  .privacy-item p,
+  .privacy-item ul li {
+    font-size: 0.95rem;
+  }
+}

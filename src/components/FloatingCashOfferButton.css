@@ -1,0 +1,102 @@
+.floating-cash-offer-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #FF7F50 0%, #ff6b3d 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 127, 80, 0.4);
+  z-index: 999;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(100px);
+  pointer-events: none;
+}
+
+.floating-cash-offer-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.floating-cash-offer-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(241, 196, 15, 0.5);
+  background: linear-gradient(135deg, #FF7F50 0%, #ff6b3d 100%);
+}
+
+.floating-cash-offer-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 127, 80, 0.4);
+}
+
+.floating-btn-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.floating-btn-text {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  white-space: nowrap;
+}
+
+/* Pulse animation for attention */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 8px 20px rgba(255, 127, 80, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 20px rgba(241, 196, 15, 0.6), 0 0 0 10px rgba(255, 127, 80, 0.1);
+  }
+}
+
+.floating-cash-offer-btn.visible {
+  animation: pulse 2s infinite;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .floating-cash-offer-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+
+  .floating-btn-icon {
+    font-size: 18px;
+  }
+  
+  .floating-btn-text {
+    display: none;
+  }
+  
+  .floating-cash-offer-btn {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  .floating-btn-icon {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-cash-offer-btn {
+    bottom: 15px;
+    right: 15px;
+    width: 56px;
+    height: 56px;
+  }
+}

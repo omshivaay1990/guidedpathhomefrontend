@@ -1,0 +1,367 @@
+.terms-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.terms-modal-content {
+  background: white;
+  border-radius: 25px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Custom Scrollbar */
+.terms-modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.terms-modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 25px 25px 0;
+}
+
+.terms-modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0F4C4C 0%, #F1C40F 100%);
+  border-radius: 10px;
+}
+
+.terms-modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F1C40F 0%, #0F4C4C 100%);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.terms-close-button {
+  position: sticky;
+  top: 20px;
+  right: 20px;
+  float: right;
+  background: linear-gradient(135deg, #FF7F50 0%, #ff6b3d 100%);
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(255, 127, 80, 0.4);
+  z-index: 10;
+  margin-bottom: -45px;
+}
+
+.terms-close-button:hover {
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 127, 80, 0.6);
+  background: linear-gradient(135deg, #ff6b3d 0%, #FF7F50 100%);
+}
+
+.terms-modal-body {
+  padding: 60px;
+  clear: both;
+}
+
+.terms-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0F4C4C;
+  margin-bottom: 10px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.terms-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #0F4C4C 0%, #F1C40F 100%);
+  border-radius: 2px;
+}
+
+.terms-effective {
+  text-align: center;
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.terms-intro {
+  background: linear-gradient(135deg, rgba(15, 76, 76, 0.05) 0%, rgba(225, 196, 15, 0.05) 100%);
+  padding: 25px 30px;
+  border-radius: 15px;
+  border-left: 4px solid #F1C40F;
+  margin-bottom: 40px;
+}
+
+.terms-intro p {
+  font-size: 1.1rem;
+  color: #0F4C4C;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.terms-item {
+  margin-bottom: 35px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.terms-item:last-of-type {
+  border-bottom: none;
+}
+
+.terms-item h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0F4C4C;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.terms-item h2::before {
+  content: '•';
+  color: #F1C40F;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.terms-item p {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.terms-contact {
+  background: linear-gradient(135deg, #0F4C4C 0%, #0a3838 100%);
+  padding: 40px;
+  border-radius: 20px;
+  margin-top: 50px;
+  color: white;
+  text-align: center;
+}
+
+.terms-contact h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #F1C40F;
+}
+
+.contact-details p {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.contact-details strong {
+  font-size: 1.3rem;
+  color: #F1C40F;
+}
+
+.contact-details a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.contact-details a:hover {
+  color: #F1C40F;
+  border-bottom-color: #F1C40F;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .terms-modal-overlay {
+    padding: 15px;
+  }
+
+  .terms-modal-content {
+    max-height: 90vh;
+    border-radius: 20px;
+  }
+
+  .terms-close-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+    top: 15px;
+    right: 15px;
+    margin-bottom: -40px;
+  }
+
+  .terms-modal-body {
+    padding: 50px 30px;
+  }
+
+  .terms-title {
+    font-size: 2.2rem;
+  }
+
+  .terms-effective {
+    font-size: 0.9rem;
+  }
+
+  .terms-intro {
+    padding: 20px 25px;
+  }
+
+  .terms-intro p {
+    font-size: 1rem;
+  }
+
+  .terms-item h2 {
+    font-size: 1.3rem;
+  }
+
+  .terms-item p {
+    font-size: 0.95rem;
+  }
+
+  .terms-contact {
+    padding: 30px 25px;
+  }
+
+  .terms-contact h2 {
+    font-size: 1.7rem;
+  }
+
+  .contact-details p {
+    font-size: 1rem;
+  }
+
+  .contact-details strong {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-modal-overlay {
+    padding: 10px;
+  }
+
+  .terms-modal-content {
+    border-radius: 15px;
+    max-height: 92vh;
+  }
+
+  .terms-close-button {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    top: 12px;
+    right: 12px;
+    margin-bottom: -36px;
+  }
+
+  .terms-modal-body {
+    padding: 40px 20px;
+  }
+
+  .terms-title {
+    font-size: 1.8rem;
+    padding-bottom: 15px;
+  }
+
+  .terms-title::after {
+    width: 80px;
+    height: 3px;
+  }
+
+  .terms-effective {
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+  }
+
+  .terms-intro {
+    padding: 18px 20px;
+  }
+
+  .terms-intro p {
+    font-size: 0.95rem;
+  }
+
+  .terms-item {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+  }
+
+  .terms-item h2 {
+    font-size: 1.2rem;
+  }
+
+  .terms-item h2::before {
+    font-size: 1.6rem;
+  }
+
+  .terms-item p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .terms-contact {
+    padding: 25px 20px;
+    margin-top: 40px;
+  }
+
+  .terms-contact h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .contact-details p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+
+  .contact-details strong {
+    font-size: 1.1rem;
+  }
+}
