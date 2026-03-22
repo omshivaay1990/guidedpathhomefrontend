@@ -51,7 +51,7 @@
 }
 
 .navbar.scrolled .navbar-logo-img {
-  height: 120px;
+  height: 70px;
 }
 
 .navbar-menu {
@@ -188,7 +188,7 @@
     right: -100%;
     width: 280px;
     height: 100vh;
-    background: rgba(30, 41, 59, 0.98);
+    background: #0f4c4c;;
     backdrop-filter: blur(10px);
     flex-direction: column;
     justify-content: center;

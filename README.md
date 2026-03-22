@@ -124,7 +124,7 @@ This project is created for business use.
 
 For questions or support:
 - Email: support@GuidedPathHome.com
-- Phone: (945) 307-8911
+- Phone: (469) 406 4509
 - Location: DFW, Texas
 
 ---

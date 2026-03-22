@@ -150,7 +150,7 @@ const PrivacyPolicy = ({ isOpen, onClose }) => {
               <p><strong>GuidedPath Home</strong></p>
               <p>DFW, Texas</p>
               <p>Email: <a href="mailto:support@GuidedPathHome.com">support@GuidedPathHome.com</a></p>
-              <p>Phone: <a href="tel:+19453078911">(945) 307-8911 <br />(469) 406 4509 </a></p>
+              <p>Phone: <a href="tel:+14694064509">(469) 406 4509 </a></p>
             </div>
           </div>
         </div>

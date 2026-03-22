@@ -12,7 +12,7 @@ const ImageSlider = () => {
     {
       id: 1,
       title: "Sell Your Home With Clarity and Confidence",
-      subtitle: "Fair, data-backed offers and flexible solutions",
+      subtitle: "Fair, Data-backed, Offers and Flexible Solutions — designed around your situation.",
       description: "— designed around your situation.",
       buttonText: "Get Your Cash Offer",
       image: "/homepic.jpg",
@@ -66,9 +66,22 @@ const ImageSlider = () => {
   };
 
   const scrollToForm = () => {
+    // Try to scroll to the Full Name input directly
+    const nameInput = document.querySelector('#contact-form input[name="name"]');
+    if (nameInput) {
+      nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // On mobile, also focus the input after scroll
+      if (window.innerWidth <= 768) {
+        setTimeout(() => {
+          nameInput.focus();
+        }, 600);
+      }
+      return;
+    }
+    // Fallback: scroll to the form section
     const formSection = document.getElementById('contact-form');
     if (formSection) {
-      formSection.scrollIntoView({ behavior: 'smooth' });
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -101,52 +114,57 @@ const ImageSlider = () => {
               <img src={slide.logo_text} alt="GuidedPath textHomes" className="slide-logo slide-logo-highlighted" style={{width: '50%'}} />
             </>
             <h1 className="slide-title">{slide.title}</h1>
+            <br></br>
             <h2 className="slide-subtitle">{slide.subtitle}</h2>
-            <p className="slide-description">{slide.description}</p>
+            <br></br>
+            <br></br>
+            {/* <p className="slide-description">{slide.description}</p> */}
             {/* <button className="slide-button" onClick={scrollToForm}>
               {slide.buttonText}
             </button> */}
+            {/* Add gap before search input on mobile */}
+            <span className="slider-search-mobile-gap" style={{ display: 'none' }}></span>
             <div style={{ width: '100%', display: 'flex',  alignItems: 'center', justifyContent: 'center', marginTop: '18px' }}>
               <div style={{ position: 'relative', maxWidth: '350px', width: '100%' }}>
                 <input
                   type="text"
-                  placeholder="Enter your property location here..."
+                  placeholder="Enter your property address..."
                   value={searchAddress}
                   onChange={e => setSearchAddress(e.target.value)}
                   className="hero-search-input"
                   style={{
                     height: '38px',
                     fontSize: '0.8rem',
-                    padding: '0 44px 0 12px',
+                    padding: '0 12px',
                     borderRadius: '20px',
                     border: '1px solid #ccc',
                     width: '100%',
-                    boxSizing: 'border-box'
+                    boxSizing: 'border-box',
+                    marginBottom: '12px'
                   }}
                 />
-                <button
-                  onClick={handleSearch}
-                  disabled={!searchAddress.trim()}
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    right: '8px',
-                    transform: 'translateY(-50%)',
-                    background: 'transparent',
-                    border: 'none',
-                    padding: 0,
-                    cursor: searchAddress.trim() ? 'pointer' : 'not-allowed',
-                    opacity: searchAddress.trim() ? 1 : 0.5,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '30px',
-                    width: '30px'
-                  }}
-                  aria-label="Search"
-                >
-                  <img src="/search1.png" alt="Search" style={{ width: '24px', height: '24px' }} />
-                </button>
+                <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                  <button
+                    className="start-now-btn"
+                    onClick={handleSearch}
+                    disabled={!searchAddress.trim()}
+                    style={{
+                      width: 'auto',
+                      padding: '8px 24px',
+                      borderRadius: '50px',
+                      border: 'none',
+                      background: 'linear-gradient(135deg, #FF7F50 0%, #ff6b3d 100%)',
+                      color: '#fff',
+                      fontSize: '1rem',
+                      fontWeight: 600,
+                      cursor: !searchAddress.trim() ? 'not-allowed' : 'pointer',
+                      boxShadow: '0 8px 20px rgba(255, 127, 80, 0.2)',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    Start now
+                  </button>
+                </div>
               </div>
             </div>
           </div>

@@ -182,8 +182,9 @@
 }
 
 .value-card:nth-child(1) { 
-  animation-delay: 0.1s;
-  box-shadow: 5px 5px 20px #0a3838;
+  animation-delay: 0.2s;
+  background: linear-gradient(135deg, #0F4C4C 0%, #0a3838 100%);
+  box-shadow: 0 -5px 20px rgba(15, 76, 76, 0.15);
 }
 
 .value-card:nth-child(2) { 
@@ -199,15 +200,20 @@
 }
 
 .value-card:nth-child(4) { 
-  animation-delay: 0.4s;
-  box-shadow: 5px 5px 20px #0a3838;
+  animation-delay: 0.2s;
+  background: linear-gradient(135deg, #0F4C4C 0%, #0a3838 100%);
+  box-shadow: 0 -5px 20px rgba(15, 76, 76, 0.15); 
 }
 
+.value-card:nth-child(1) .value-title,
+.value-card:nth-child(4) .value-title,
 .value-card:nth-child(2) .value-title,
 .value-card:nth-child(3) .value-title {
   color: #F1C40F;
 }
 
+.value-card:nth-child(1) .value-description,
+.value-card:nth-child(4) .value-description,
 .value-card:nth-child(2) .value-description,
 .value-card:nth-child(3) .value-description {
   color: rgba(255, 255, 255, 0.9);
@@ -220,7 +226,7 @@
 
 .value-card:nth-child(1):hover,
 .value-card:nth-child(3):hover {
-  box-shadow: 0 15px 40px rgba(15, 76, 76, 0.2);
+  box-shadow: 0 -8px 30px rgba(225, 196, 15, 0.25);
 }
 
 .value-card:nth-child(2):hover,

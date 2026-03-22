@@ -57,7 +57,7 @@ const WhySellToUs = () => {
           <div className="why-sell-image">
             <div className="image-wrapper">
               <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" 
+                src="whyselltous.png" 
                 alt="Beautiful home"
                 className="main-image"
               />
@@ -74,14 +74,14 @@ const WhySellToUs = () => {
             <div className="small-images-grid">
               <div className="small-image-wrapper">
                 <img 
-                  src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop" 
+                  src="whyselltous2.png" 
                   alt="Happy homeowner"
                   className="small-image"
                 />
               </div>
               <div className="small-image-wrapper">
                 <img 
-                  src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1000&auto=format&fit=crop" 
+                  src="whyselltous3.png" 
                   alt="Modern house"
                   className="small-image"
                 />

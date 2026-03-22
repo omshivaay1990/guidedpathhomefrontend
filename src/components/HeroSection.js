@@ -39,23 +39,24 @@ const HeroSection = () => {
           <h1 className="hero-title">Sells Your Home With Clarity and Confidence</h1>
           <h2 className="hero-subtitle">Fair, data-backed offers and flexible solutions — designed around your situation.</h2>
           <p className="hero-description">An honest, guided selling process designed around your needs</p>
-          {/* Search Bar */}
-          
+          {/* Start Now Bar */}
+          <div className="hero-search-bar" style={{ flexDirection: 'column', alignItems: 'stretch', gap: 0 }}>
             <input
               type="text"
               placeholder="Enter your property address or location..."
               value={searchAddress}
               onChange={e => setSearchAddress(e.target.value)}
               className="hero-search-input"
+              style={{ marginBottom: 12 }}
             />
             <button
-              className="hero-search-button"
+              className="start-now-btn"
               onClick={handleSearch}
               disabled={!searchAddress.trim()}
             >
-              Search
+              Start now
             </button>
-          
+          </div>
         </div>
       </div>
       <div className="hero-overlay"></div>

@@ -34,10 +34,10 @@ const AboutUs = () => {
       <div className="about-container">
         <div className="about-content">
           <div className="about-text-section">
-            <div className="about-badge">
+            {/* <div className="about-badge">
               <span className="badge-dot"></span>
               <span className="badge-text">ABOUT GuidedPath Home</span>
-            </div>
+            </div> */}
             
             <h2 className="about-title">
               A Family-Run Company Built on Trust
@@ -84,21 +84,21 @@ const AboutUs = () => {
             <div className="image-stack">
               <div className="stack-image stack-image-1">
                 <img 
-                  src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800&auto=format&fit=crop" 
+                  src="aboutus1.png" 
                   alt="Beautiful modern home"
                 />
                 <div className="image-overlay"></div>
               </div>
               <div className="stack-image stack-image-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=800&auto=format&fit=crop" 
+                  src="aboutus2.png" 
                   alt="Modern house exterior"
                 />
                 <div className="image-overlay"></div>
               </div>
               <div className="stack-image stack-image-3">
                 <img 
-                  src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=800&auto=format&fit=crop" 
+                  src="aboutus3.png" 
                   alt="Cozy home interior"
                 />
                 <div className="image-overlay"></div>

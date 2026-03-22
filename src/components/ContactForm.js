@@ -36,47 +36,40 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Prepare payload as per API requirements
-    const payload = {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      message: formData.message,
-      property_address: formData.address,
-      property_condition: formData.propertyCondition,
-      timeline: formData.timeline,
-      additional_info: formData.message // You can adjust this if you want a different field
-    };
-
+    setSubmitStatus(null);
+    
     try {
-      const response = await fetch('http://localhost:8000/api/v1/lead', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        setSubmitStatus('success');
-        // Reset form after successful submission
-        setTimeout(() => {
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            address: '',
-            propertyCondition: '',
-            timeline: '',
-            message: ''
-          });
-          setSubmitStatus(null);
-        }, 3000);
-      } else {
-        setSubmitStatus('error');
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
       }
+
+      const data = await response.json();
+      console.log('Form submitted successfully:', data);
+      setSubmitStatus('success');
+      
+      // Reset form after successful submission
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          address: '',
+          propertyCondition: '',
+          timeline: '',
+          message: ''
+        });
+        setSubmitStatus(null);
+      }, 3000);
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -119,9 +112,8 @@ const ContactForm = () => {
 
             <div className="contact-methods">
               <h3>Prefer to Talk?</h3>
-              <a href="tel:+19453078911" className="contact-link">
+              <a href="tel:+14694064509" className="contact-link">
                 <span className="contact-icon">📞</span>
-                (945) 307-8911 <br />
                 (469) 406 4509
               </a>
               <a href="mailto:support@GuidedPathHome.com" className="contact-link">
@@ -241,7 +233,6 @@ const ContactForm = () => {
                 <strong>Important Notice:</strong> By submitting this form, you agree to be contacted by GuidedPath Home via call, email, and text regarding your property inquiry. Message and data rates may apply. Consent is not required to receive an offer or sell your property. You may opt out at any time by replying STOP.
               </div>
 
-
               <button 
                 type="submit" 
                 className="submit-button"
@@ -255,9 +246,10 @@ const ContactForm = () => {
                   ✓ Thank you! We'll contact you within 24 hours with your cash offer.
                 </div>
               )}
+
               {submitStatus === 'error' && (
                 <div className="error-message">
-                  Sorry, there was a problem submitting your request. Please try again later.
+                  ✗ There was an error submitting your request. Please try again or contact us directly.
                 </div>
               )}
 
