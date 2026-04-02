@@ -35,7 +35,7 @@ const HeroSection = () => {
     <section className="hero-section" id="home">
       <div className="hero-content">
         <div className="hero-text">
-          <img src="/hero2.png" />
+          <img src="/hero2.png" alt="Guided Path Icon" />
           <h1 className="hero-title">Sells Your Home With Clarity and Confidence</h1>
           <h2 className="hero-subtitle">Fair, data-backed offers and flexible solutions — designed around your situation.</h2>
           <p className="hero-description">An honest, guided selling process designed around your needs</p>

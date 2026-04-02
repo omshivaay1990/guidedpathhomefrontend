@@ -41,19 +41,6 @@ const Benefits = () => {
     }
   ];
 
-  const situations = [
-    'Facing Foreclosure',
-    'Inherited Property',
-    'Divorce Settlement',
-    'Job Relocation',
-    'Financial Hardship',
-    'Bad Tenants',
-    'House Needs Repairs',
-    'Behind on Payments',
-    'Downsizing',
-    'Estate Sale'
-  ];
-
   return (
     <section id="benefits" className="benefits">
       <div className="benefits-decorative-bg">

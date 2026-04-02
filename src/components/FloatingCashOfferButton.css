@@ -100,3 +100,63 @@
     height: 56px;
   }
 }
+
+/* Floating tooltip - mobile only */
+.floating-tooltip {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .floating-tooltip {
+    display: block;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: linear-gradient(135deg, #0a3838 0%, #0d5050 100%);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    box-shadow: 0 6px 20px rgba(10, 56, 56, 0.5), 0 3px 8px rgba(0, 0, 0, 0.3);
+    z-index: 998;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    max-width: 180px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .floating-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .floating-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #0d5050;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-tooltip {
+    bottom: 80px;
+    right: 15px;
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  .floating-tooltip::after {
+    right: 15px;
+  }
+}

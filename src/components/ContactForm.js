@@ -181,13 +181,12 @@ const ContactForm = () => {
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="propertyCondition">Property Condition *</label>
+                  <label htmlFor="propertyCondition">Property Condition</label>
                   <select
                     id="propertyCondition"
                     name="propertyCondition"
                     value={formData.propertyCondition}
                     onChange={handleChange}
-                    required
                   >
                     <option value="">Select condition</option>
                     <option value="excellent">Excellent</option>
@@ -199,13 +198,12 @@ const ContactForm = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="timeline">When to Sell? *</label>
+                  <label htmlFor="timeline">When to Sell?</label>
                   <select
                     id="timeline"
                     name="timeline"
                     value={formData.timeline}
                     onChange={handleChange}
-                    required
                   >
                     <option value="">Select timeline</option>
                     <option value="asap">As Soon As Possible</option>

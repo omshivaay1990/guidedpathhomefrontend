@@ -22,18 +22,30 @@ const FloatingCashOfferButton = () => {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Focus on the Full Name field after scrolling
+      setTimeout(() => {
+        const nameField = document.getElementById('name');
+        if (nameField) {
+          nameField.focus();
+        }
+      }, 600);
     }
   };
 
   return (
-    <button
-      className={`floating-cash-offer-btn ${isVisible ? 'visible' : ''}`}
-      onClick={scrollToContactForm}
-      aria-label="Get My Cash Offer"
-    >
-      <span className="floating-btn-icon">💰</span>
-      <span className="floating-btn-text">Get My Cash Offer</span>
-    </button>
+    <>
+      <div className={`floating-tooltip ${isVisible ? 'visible' : ''}`}>
+        Click here to get your cash offer
+      </div>
+      <button
+        className={`floating-cash-offer-btn ${isVisible ? 'visible' : ''}`}
+        onClick={scrollToContactForm}
+        aria-label="Get My Cash Offer"
+      >
+        <span className="floating-btn-icon">💰</span>
+        <span className="floating-btn-text">Get My Cash Offer</span>
+      </button>
+    </>
   );
 };
 

@@ -53,35 +53,28 @@ const ImageSlider = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
   const scrollToForm = () => {
     // Try to scroll to the Full Name input directly
     const nameInput = document.querySelector('#contact-form input[name="name"]');
     if (nameInput) {
       nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      // On mobile, also focus the input after scroll
-      if (window.innerWidth <= 768) {
-        setTimeout(() => {
-          nameInput.focus();
-        }, 600);
-      }
+      // Focus the input after scroll
+      setTimeout(() => {
+        nameInput.focus();
+      }, 600);
       return;
     }
     // Fallback: scroll to the form section
     const formSection = document.getElementById('contact-form');
     if (formSection) {
       formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Focus on the Full Name field after scrolling
+      setTimeout(() => {
+        const nameField = document.getElementById('name');
+        if (nameField) {
+          nameField.focus();
+        }
+      }, 600);
     }
   };
 
@@ -107,25 +100,19 @@ const ImageSlider = () => {
           }}
         >
           <div className="slide-overlay"></div>
+         
+          
           <div className="slide-content">
-            <>
-              <img src={slide.logo_image} alt="GuidedPath logo" className="slide-logo slide-logo-highlighted" style={{width: '50%'}} />
-              <br />
-              <img src={slide.logo_text} alt="GuidedPath textHomes" className="slide-logo slide-logo-highlighted" style={{width: '50%'}} />
-            </>
+            <div className="logo-container">
+              <img src={slide.logo_image} alt="GuidedPath logo" className="slide-logo slide-logo-highlighted" />
+              <br/>
+              <img src={slide.logo_text} alt="GuidedPath textHomes" className="slide-logo slide-logo-highlighted" />
+              <span className="badge-text-logo-subtitle">Family-Owned Real Estate Solutions</span>
+            </div>
             <h1 className="slide-title">{slide.title}</h1>
-            <br></br>
             <h2 className="slide-subtitle">{slide.subtitle}</h2>
-            <br></br>
-            <br></br>
-            {/* <p className="slide-description">{slide.description}</p> */}
-            {/* <button className="slide-button" onClick={scrollToForm}>
-              {slide.buttonText}
-            </button> */}
-            {/* Add gap before search input on mobile */}
-            <span className="slider-search-mobile-gap" style={{ display: 'none' }}></span>
-            <div style={{ width: '100%', display: 'flex',  alignItems: 'center', justifyContent: 'center', marginTop: '18px' }}>
-              <div style={{ position: 'relative', maxWidth: '350px', width: '100%' }}>
+            <div className="search-container" style={{ width: '100%', display: 'flex',  alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ position: 'relative', maxWidth: '400px', width: '100%' }}>
                 <input
                   type="text"
                   placeholder="Enter your property address..."
@@ -133,16 +120,21 @@ const ImageSlider = () => {
                   onChange={e => setSearchAddress(e.target.value)}
                   className="hero-search-input"
                   style={{
-                    height: '38px',
-                    fontSize: '0.8rem',
-                    padding: '0 12px',
-                    borderRadius: '20px',
-                    border: '1px solid #ccc',
+                    height: '35px',
+                    fontSize: '0.76rem',
+                    padding: '0 40px 0 13px',
+                    borderRadius: '16px',
+                    border: '2px solid rgba(255, 255, 255, 0.5)',
                     width: '100%',
                     boxSizing: 'border-box',
-                    marginBottom: '12px'
+                    marginBottom: '10px',
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)'
                   }}
                 />
+                <span className="location-icon">
+                  📍
+                </span>
                 <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                   <button
                     className="start-now-btn"
@@ -150,16 +142,30 @@ const ImageSlider = () => {
                     disabled={!searchAddress.trim()}
                     style={{
                       width: 'auto',
-                      padding: '8px 24px',
-                      borderRadius: '50px',
+                      padding: '10px 26px',
+                      borderRadius: '40px',
                       border: 'none',
-                      background: 'linear-gradient(135deg, #FF7F50 0%, #ff6b3d 100%)',
+                      background: !searchAddress.trim() ? '#bbb' : 'linear-gradient(135deg, #FF7F50 0%, #ff6b3d 100%)',
                       color: '#fff',
-                      fontSize: '1rem',
+                      fontSize: '0.88rem',
                       fontWeight: 600,
                       cursor: !searchAddress.trim() ? 'not-allowed' : 'pointer',
-                      boxShadow: '0 8px 20px rgba(255, 127, 80, 0.2)',
+                      boxShadow: !searchAddress.trim() ? '0 3px 10px rgba(0, 0, 0, 0.1)' : '0 6px 16px rgba(255, 127, 80, 0.3)',
                       transition: 'all 0.3s ease',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.8px'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (searchAddress.trim()) {
+                        e.target.style.transform = 'translateY(-2px)';
+                        e.target.style.boxShadow = '0 10px 22px rgba(255, 127, 80, 0.4)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (searchAddress.trim()) {
+                        e.target.style.transform = 'translateY(0)';
+                        e.target.style.boxShadow = '0 6px 16px rgba(255, 127, 80, 0.3)';
+                      }
                     }}
                   >
                     Start now
