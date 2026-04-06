@@ -16,7 +16,7 @@ const ImageSlider = () => {
       description: "— designed around your situation.",
       buttonText: "Get Your Cash Offer",
       image: "/homepic.jpg",
-      logo_image: "/logo3.png",
+      logo_image: "/logo8.png",
       logo_text: "/logo_text.png"
     }//,
     // {
@@ -105,9 +105,9 @@ const ImageSlider = () => {
           <div className="slide-content">
             <div className="logo-container">
               <img src={slide.logo_image} alt="GuidedPath logo" className="slide-logo slide-logo-highlighted" />
-              <br/>
+              {/* <br/>
               <img src={slide.logo_text} alt="GuidedPath textHomes" className="slide-logo slide-logo-highlighted" />
-              <span className="badge-text-logo-subtitle">Family-Owned Real Estate Solutions</span>
+              <span className="badge-text-logo-subtitle">Family-Owned Real Estate Solutions</span> */}
             </div>
             <h1 className="slide-title">{slide.title}</h1>
             <h2 className="slide-subtitle">{slide.subtitle}</h2>
