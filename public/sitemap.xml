@@ -1,11 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Homepage -->
   <url>
     <loc>https://guidedpathhome.com/</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Main Sections (Hash Anchors) -->
+  <url>
+    <loc>https://guidedpathhome.com/#benefits</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://guidedpathhome.com/#how-it-works</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://guidedpathhome.com/#why-sell-to-us</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://guidedpathhome.com/#about-us</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://guidedpathhome.com/#testimonials</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://guidedpathhome.com/#faq</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://guidedpathhome.com/#contact-form</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>

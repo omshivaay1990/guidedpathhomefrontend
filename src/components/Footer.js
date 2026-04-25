@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="footer-grid">
             <div className="footer-col">
               <div className="footer-logo">
-                <img src="/hero2.png" alt="GuidedPath Home" className="footer-logo-img" />
+                <img src="/icon_footer.png" alt="GuidedPath Home" className="footer-logo-img" />
               </div>
               <span className="footer-brand-name">GuidedPath Home</span>
               <p className="footer-description">
