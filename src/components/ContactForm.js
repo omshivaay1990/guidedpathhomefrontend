@@ -7,19 +7,21 @@ const ContactForm = () => {
     name: '',
     email: '',
     phone: '',
-    address: '',
-    propertyCondition: '',
+    property_address: '',
+    property_condition: '',
     timeline: '',
-    message: ''
+    message: '',
+    additional_info: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Listen for addressSearch event from HeroSection
   useEffect(() => {
     const handleAddressSearch = (e) => {
-      setFormData(prev => ({ ...prev, address: e.detail }));
+      setFormData(prev => ({ ...prev, property_address: e.detail }));
     };
     window.addEventListener('addressSearch', handleAddressSearch);
     return () => window.removeEventListener('addressSearch', handleAddressSearch);
@@ -37,6 +39,7 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
+    setErrorMessage('');
     
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}`, {
@@ -48,12 +51,39 @@ const ContactForm = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit form');
+        // Handle 422 validation errors
+        if (response.status === 422) {
+          try {
+            const errorData = await response.json();
+            // Extract validation error message
+            if (errorData.detail) {
+              if (Array.isArray(errorData.detail)) {
+                // If detail is an array of errors
+                const errorMessages = errorData.detail.map(err => 
+                  `${err.loc?.[1] || 'Field'}: ${err.msg}`
+                ).join('; ');
+                setErrorMessage(errorMessages);
+              } else if (typeof errorData.detail === 'string') {
+                // If detail is a string
+                setErrorMessage(errorData.detail);
+              }
+            } else {
+              setErrorMessage('Validation error: Please check your input and try again.');
+            }
+          } catch (parseError) {
+            setErrorMessage('Validation error: Please check your input and try again.');
+          }
+        } else {
+          setErrorMessage('Failed to submit form. Please try again.');
+        }
+        setSubmitStatus('error');
+        return;
       }
 
       const data = await response.json();
       console.log('Form submitted successfully:', data);
       setSubmitStatus('success');
+      setErrorMessage('');
       
       // Reset form after successful submission
       setTimeout(() => {
@@ -61,15 +91,18 @@ const ContactForm = () => {
           name: '',
           email: '',
           phone: '',
-          address: '',
-          propertyCondition: '',
+          property_address: '',
+          property_condition: '',
           timeline: '',
-          message: ''
+          message: '',
+          additional_info: ''
         });
         setSubmitStatus(null);
+        setErrorMessage('');
       }, 3000);
     } catch (error) {
       console.error('Error submitting form:', error);
+      setErrorMessage(error.message || 'An unexpected error occurred. Please try again.');
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -167,12 +200,12 @@ const ContactForm = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="address">Property Address *</label>
+                <label htmlFor="property_address">Property Address *</label>
                 <input
                   type="text"
-                  id="address"
-                  name="address"
-                  value={formData.address}
+                  id="property_address"
+                  name="property_address"
+                  value={formData.property_address}
                   onChange={handleChange}
                   required
                   placeholder="123 Main St, City, State, ZIP"
@@ -181,11 +214,11 @@ const ContactForm = () => {
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="propertyCondition">Property Condition</label>
+                  <label htmlFor="property_condition">Property Condition</label>
                   <select
-                    id="propertyCondition"
-                    name="propertyCondition"
-                    value={formData.propertyCondition}
+                    id="property_condition"
+                    name="property_condition"
+                    value={formData.property_condition}
                     onChange={handleChange}
                   >
                     <option value="">Select condition</option>
@@ -216,11 +249,11 @@ const ContactForm = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Additional Details (Optional)</label>
+                <label htmlFor="additional_info">Additional Details (Optional)</label>
                 <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
+                  id="additional_info"
+                  name="additional_info"
+                  value={formData.additional_info}
                   onChange={handleChange}
                   rows="4"
                   placeholder="Tell us more about your property or situation..."
@@ -247,7 +280,7 @@ const ContactForm = () => {
 
               {submitStatus === 'error' && (
                 <div className="error-message">
-                  ✗ There was an error submitting your request. Please try again or contact us directly.
+                  ✗ {errorMessage || 'There was an error submitting your request. Please try again or contact us directly.'}
                 </div>
               )}
 
