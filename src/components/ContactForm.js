@@ -1,8 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Autocomplete, useJsApiLoader } from "@react-google-maps/api";
 import './ContactForm.css';
+
+const GOOGLE_MAPS_API_KEY = "AIzaSyA2me50_LuGiqTykDoOkbFFaKIFqKPe1N0";
+const libraries = ["places"];
 
 
 const ContactForm = () => {
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: GOOGLE_MAPS_API_KEY,
+    libraries,
+  });
+  const autocompleteRef = useRef(null);
+  const addressInputRef = useRef(null);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,6 +33,7 @@ const ContactForm = () => {
   useEffect(() => {
     const handleAddressSearch = (e) => {
       setFormData(prev => ({ ...prev, property_address: e.detail }));
+      if (addressInputRef.current) addressInputRef.current.value = e.detail;
     };
     window.addEventListener('addressSearch', handleAddressSearch);
     return () => window.removeEventListener('addressSearch', handleAddressSearch);
@@ -97,6 +109,7 @@ const ContactForm = () => {
           message: '',
           additional_info: ''
         });
+        if (addressInputRef.current) addressInputRef.current.value = '';
         setSubmitStatus(null);
         setErrorMessage('');
       }, 3000);
@@ -201,15 +214,40 @@ const ContactForm = () => {
 
               <div className="form-group">
                 <label htmlFor="property_address">Property Address *</label>
-                <input
-                  type="text"
-                  id="property_address"
-                  name="property_address"
-                  value={formData.property_address}
-                  onChange={handleChange}
-                  required
-                  placeholder="123 Main St, City, State, ZIP"
-                />
+                {isLoaded ? (
+                  <Autocomplete
+                    onLoad={(ref) => (autocompleteRef.current = ref)}
+                    onPlaceChanged={() => {
+                      const place = autocompleteRef.current.getPlace();
+                      if (place.geometry) {
+                        const address = place.formatted_address;
+                        if (addressInputRef.current) addressInputRef.current.value = address;
+                        setFormData(prev => ({ ...prev, property_address: address }));
+                      }
+                    }}
+                  >
+                    <input
+                      ref={addressInputRef}
+                      type="text"
+                      id="property_address"
+                      name="property_address"
+                      defaultValue={formData.property_address}
+                      onChange={handleChange}
+                      required
+                      placeholder="123 Main St, City, State, ZIP"
+                    />
+                  </Autocomplete>
+                ) : (
+                  <input
+                    type="text"
+                    id="property_address"
+                    name="property_address"
+                    value={formData.property_address}
+                    onChange={handleChange}
+                    required
+                    placeholder="123 Main St, City, State, ZIP"
+                  />
+                )}
               </div>
 
               <div className="form-row">

@@ -5,6 +5,7 @@
   "description": "Professional website for We Buy Houses business",
   "homepage": ".",
   "dependencies": {
+    "@react-google-maps/api": "^2.20.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^3.0.0",
@@ -19,12 +20,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-
   "reactSnap": {
     "inlineCss": true,
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   },
-  
   "eslintConfig": {
     "extends": [
       "react-app"

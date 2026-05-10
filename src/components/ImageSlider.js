@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ImageSlider.css';
+import AddressFields from "./Address";
 
 const ImageSlider = () => {
   useEffect(() => {
@@ -16,7 +17,7 @@ const ImageSlider = () => {
       description: "— designed around your situation.",
       buttonText: "Get Your Cash Offer",
       image: "/homepic.jpg",
-      logo_image: "/logo8.png",
+      logo_image: "/hero2.png",
       logo_text: "/logo_text.png"
     }//,
     // {
@@ -113,29 +114,11 @@ const ImageSlider = () => {
             <h2 className="slide-subtitle">{slide.subtitle}</h2>
             <div className="search-container" style={{ width: '100%', display: 'flex',  alignItems: 'center', justifyContent: 'center' }}>
               <div style={{ position: 'relative', maxWidth: '400px', width: '100%' }}>
-                <input
-                  type="text"
-                  placeholder="Enter your property address..."
-                  value={searchAddress}
-                  onChange={e => setSearchAddress(e.target.value)}
-                  className="hero-search-input"
-                  style={{
-                    height: '35px',
-                    fontSize: '0.76rem',
-                    padding: '0 40px 0 13px',
-                    borderRadius: '16px',
-                    border: '2px solid rgba(255, 255, 255, 0.5)',
-                    width: '100%',
-                    boxSizing: 'border-box',
-                    marginBottom: '10px',
-                    background: 'rgba(255, 255, 255, 0.95)',
-                    boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)'
-                  }}
-                />
+                <AddressFields onAddressChange={setSearchAddress} />
                 <span className="location-icon">
                   📍
                 </span>
-                <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: '12px' }}>
                   <button
                     className="start-now-btn"
                     onClick={handleSearch}
