@@ -286,12 +286,12 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(15, 76, 76, 0.72);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.35);
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -299,54 +299,58 @@
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 0;
 }
 
 .slider-nav:hover {
-  background: rgba(255, 255, 255, 0.35);
-  transform: translateY(-50%) scale(1.1);
+  background: rgba(15, 76, 76, 0.92);
+  transform: translateY(-50%) scale(1.08);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .slider-nav.prev {
-  left: 30px;
+  left: 24px;
 }
 
 .slider-nav.next {
-  right: 30px;
+  right: 24px;
 }
 
 /* Dots Navigation */
 .slider-dots {
   position: absolute;
-  bottom: 40px;
+  bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 15px;
+  gap: 12px;
   z-index: 10;
 }
 
 .dot {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(15, 76, 76, 0.35);
+  border: 2px solid rgba(15, 76, 76, 0.55);
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
 }
 
 .dot:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(15, 76, 76, 0.6);
   transform: scale(1.2);
 }
 
 .dot.active {
-  background: #F1C40F;
-  border-color: #F1C40F;
-  width: 40px;
+  background: #FF7F50;
+  border-color: #FF7F50;
+  width: 36px;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(225, 196, 15, 0.5);
+  box-shadow: 0 0 12px rgba(255, 127, 80, 0.45);
 }
 
 /* Responsive Design */
@@ -946,4 +950,287 @@
     padding: 7px 18px !important;
     font-size: 0.85rem !important;
   }
+}
+
+/* ============================================================
+   SPLIT SLIDE TEMPLATE — Slide 2 (GuidedPath Homes design)
+   ============================================================ */
+
+.slide.slide-split {
+  background-image: none !important;
+  background-color: #FFF8E7;
+  display: block;
+}
+
+
+/* ---- Left content — full-width, text reaches toward the image ---- */
+.slide-split-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 48% 60px 80px;
+  z-index: 3;
+}
+
+.split-logo-container {
+  margin-bottom: 10px;
+}
+
+.split-logo {
+  width: 220px;
+  height: auto;
+  filter: none;
+}
+
+/* Headline — four styled lines */
+.split-title {
+  font-weight: 800;
+  line-height: 1.08;
+  margin: 0 0 18px 0;
+}
+
+/* Shared size for all title parts */
+.split-title-small,
+.split-title-and,
+.split-title-large-coral,
+.split-title-large-teal {
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 1.15;
+}
+
+/* "Sell Your Home With" — charcoal, block */
+.split-title-small {
+  display: block;
+  color: #3B3B3B;
+}
+
+/* "Confidence AND" row */
+.split-title-clarity-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  line-height: 1.15;
+}
+
+/* "and" inline */
+.split-title-and {
+  color: #3B3B3B;
+  padding-bottom: 2px;
+}
+
+/* "Clarity" — coral/orange, block */
+.split-title-large-coral {
+  display: block;
+  color: #FF7F50;
+}
+
+/* "Confidence" — deep teal, block (used inside row) */
+.split-title-large-teal {
+  display: block;
+  color: #0F4C4C;
+}
+
+/* Subtitle / description */
+.split-subtitle {
+  font-size: 1.1rem;
+  color: #3B3B3B;
+  line-height: 1.65;
+  margin: 0 0 26px 0;
+  max-width: 480px;
+}
+
+/* Address input wrapper */
+.split-search-wrap {
+  width: 100%;
+}
+
+/* Override hero-search-input for light background */
+.slide-split-left input.hero-search-input {
+  display: block;
+  width: 100%;
+  height: 42px !important;
+  border-radius: 25px !important;
+  border: 1.5px solid #c8c8c8 !important;
+  background: #ffffff !important;
+  color: #3B3B3B !important;
+  font-size: 0.88rem !important;
+  padding: 0 40px 0 16px !important;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(15, 76, 76, 0.08) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+}
+
+.slide-split-left input.hero-search-input:focus {
+  border-color: #0F4C4C !important;
+  box-shadow: 0 4px 14px rgba(15, 76, 76, 0.15) !important;
+}
+
+.slide-split-left input.hero-search-input::placeholder {
+  color: #9a9a9a;
+}
+
+.split-location-icon {
+  position: absolute;
+  right: 12px;
+  top: 5px;
+  font-size: 2rem;
+  color: #FF7F50;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+}
+
+/* Submit Now button */
+.split-submit-btn {
+  padding: 10px 30px;
+  border-radius: 40px;
+  border: none;
+  background: linear-gradient(135deg, #FF7F50 0%, #ff6b3d 100%);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255, 127, 80, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  font-family: inherit;
+}
+
+.split-submit-btn:disabled {
+  background: #c0c0c0 !important;
+  cursor: not-allowed;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+  transform: none !important;
+}
+
+/* ---- Image container — covers full slide, circles inside ---- */
+.slide-split-right {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Teal + sage gradient circle behind the house photo */
+.split-circle-bg-shape {
+  position: absolute;
+  width: 100vh;
+  height: 100vh;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #0F4C4C 0%, #A8B5A2 100%);
+  bottom: -6vh;
+  right: -6vh;
+  z-index: 0;
+}
+
+/* Large house image circle — bottom-right, mostly visible */
+.split-image-wrapper {
+  position: absolute;
+  width: 93vh;
+  height: 93vh;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  box-shadow: 0 24px 64px rgba(15, 76, 76, 0.28);
+  bottom: -5vh;
+  right: -5vh;
+}
+
+.split-house-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* ---- Split Slide Responsive Breakpoints ---- */
+
+/* Large Monitors — 1920px+ */
+@media (min-width: 1920px) {
+  .slide-split-left { padding: 60px 46% 60px 110px; }
+  .split-logo { width: 260px; }
+  .split-title-small, .split-title-and,
+  .split-title-large-coral, .split-title-large-teal { font-size: 3.8rem; }
+  .split-subtitle { font-size: 1.2rem; max-width: 560px; }
+}
+
+/* Large Laptops — 1440px–1919px */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .slide-split-left { padding: 60px 46% 60px 90px; }
+  .split-logo { width: 235px; }
+  .split-title-small, .split-title-and,
+  .split-title-large-coral, .split-title-large-teal { font-size: 3.4rem; }
+  .split-subtitle { font-size: 1.1rem; }
+}
+
+/* Standard Laptops — 1024px–1439px */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .slide-split-left { padding: 50px 46% 50px 60px; }
+  .split-logo { width: 195px; }
+  .split-title-small, .split-title-and,
+  .split-title-large-coral, .split-title-large-teal { font-size: 2.6rem; }
+  .split-subtitle { font-size: 0.96rem; }
+}
+
+/* Tablets — 768px–1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .slide-split-left { padding: 48px 44% 48px 36px; }
+  .split-logo { width: 170px; }
+  .split-title-small, .split-title-and,
+  .split-title-large-coral, .split-title-large-teal { font-size: 2rem; }
+  .split-subtitle { font-size: 0.86rem; }
+  .slide-split-left input.hero-search-input {
+    height: 38px !important;
+    font-size: 0.82rem !important;
+  }
+  .split-submit-btn { font-size: 0.82rem; padding: 9px 24px; }
+}
+
+/* Mobile — below 768px */
+@media (max-width: 767px) {
+  .slide-split-left {
+    padding: 80px 22px 20px 22px;
+    justify-content: flex-start;
+    background: rgba(255, 248, 231, 0.82);
+  }
+  .split-circle-bg-shape { width: 72vw; height: 72vw; bottom: -4vw; right: -4vw; }
+  .split-image-wrapper   { width: 66vw; height: 66vw; bottom: -3vw; right: -3vw; }
+  .split-logo { width: 130px; }
+  .split-logo-container { margin-bottom: 14px; }
+  .split-title-small, .split-title-and,
+  .split-title-large-coral, .split-title-large-teal { font-size: 1.5rem; }
+  .split-subtitle { font-size: 0.82rem; margin-bottom: 16px; }
+  .slide-split-left input.hero-search-input { height: 38px !important; font-size: 0.82rem !important; }
+  .split-submit-btn { padding: 9px 22px; font-size: 0.82rem; }
+}
+
+@media (max-width: 479px) {
+  .slide-split-left { padding: 72px 16px 16px 16px; }
+  .split-logo { width: 110px; }
+  .split-circle-bg-shape { width: 80vw; height: 80vw; }
+  .split-image-wrapper   { width: 74vw; height: 74vw; }
+  .split-title-small, .split-title-and,
+  .split-title-large-coral, .split-title-large-teal { font-size: 1.45rem; letter-spacing: 0.8px; }
+  .split-subtitle { font-size: 0.76rem; }
+  .slide-split-left input.hero-search-input { height: 36px !important; font-size: 0.8rem !important; }
+  .split-submit-btn { padding: 8px 20px; font-size: 0.8rem; }
+}
+
+@media (max-width: 359px) {
+  .slide-split-left { padding: 66px 12px 12px 12px; }
+  .split-logo { width: 95px; }
+  .split-title-small, .split-title-and,
+  .split-title-large-coral, .split-title-large-teal { font-size: 1.2rem; }
+  .split-subtitle { font-size: 0.7rem; }
 }
