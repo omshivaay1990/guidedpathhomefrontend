@@ -151,26 +151,56 @@ export default function LuxuryHeroSlide({ isActive, image, searchAddress, setSea
       <div className="lh-inner">
         {/* ─── LEFT PANEL ─── */}
         <div className="lh-left">
+          {/* ── Hero block: logo + animated headline (top on mobile) ── */}
+          <div className="lh-hero-block">
           <img src="/guidedpathlogo.png" alt="GuidedPath Homes" className="lh-logo" />
 
           <div className="lh-headline" aria-label="Sell Your Home With Clarity and Confidence">
-            {done.map((w, i) => (
-              <span key={i} className={`lhw ${w.cls}`}>
-                {w.text}
-                {typingDone && i === done.length - 1 && (
-                  <span className={`lh-cur lh-cur--end ${cursor ? 'lh-cur--on' : ''}`}>|</span>
+            {/* Row 1: "Sell Your Home" + "With" — inline on desktop, stacked on mobile */}
+            {(done.length >= 1 || wIdx === 0) && (
+              <div className="lh-inline-row">
+                <span className={`lhw ${WORDS[0].cls}`}>
+                  {done.length >= 1 ? WORDS[0].text : (wIdx === 0 ? currentPartial : '')}
+                  {!typingDone && wIdx === 0 && <span className={`lh-cur ${cursor ? 'lh-cur--on' : ''}`}>|</span>}
+                </span>
+                {(done.length >= 2 || wIdx === 1) && (
+                  <span className={`lhw ${WORDS[1].cls}`}>
+                    {done.length >= 2 ? WORDS[1].text : currentPartial}
+                    {!typingDone && wIdx === 1 && <span className={`lh-cur ${cursor ? 'lh-cur--on' : ''}`}>|</span>}
+                  </span>
                 )}
-              </span>
-            ))}
+              </div>
+            )}
 
-            {!typingDone && currentWord && (
-              <span className={`lhw ${currentWord.cls}`}>
-                {currentPartial}
-                <span className={`lh-cur ${cursor ? 'lh-cur--on' : ''}`}>|</span>
+            {/* Row 2: "Clarity" + "and" — inline on desktop, stacked on mobile */}
+            {(done.length >= 3 || wIdx === 2 || wIdx === 3) && (
+              <div className="lh-inline-row">
+                <span className={`lhw ${WORDS[2].cls}`}>
+                  {done.length >= 3 ? WORDS[2].text : (wIdx === 2 ? currentPartial : '')}
+                  {!typingDone && wIdx === 2 && <span className={`lh-cur ${cursor ? 'lh-cur--on' : ''}`}>|</span>}
+                </span>
+                {(done.length >= 4 || wIdx === 3) && (
+                  <span className={`lhw ${WORDS[3].cls}`}>
+                    {done.length >= 4 ? WORDS[3].text : currentPartial}
+                    {!typingDone && wIdx === 3 && <span className={`lh-cur ${cursor ? 'lh-cur--on' : ''}`}>|</span>}
+                  </span>
+                )}
+              </div>
+            )}
+
+            {/* Row 3: "Confidence" */}
+            {(done.length >= 5 || wIdx === 4) && (
+              <span className={`lhw ${WORDS[4].cls}`}>
+                {done.length >= 5 ? WORDS[4].text : currentPartial}
+                {typingDone && <span className={`lh-cur lh-cur--end ${cursor ? 'lh-cur--on' : ''}`}>|</span>}
+                {!typingDone && wIdx === 4 && <span className={`lh-cur ${cursor ? 'lh-cur--on' : ''}`}>|</span>}
               </span>
             )}
           </div>
+          </div>{/* end lh-hero-block */}
 
+          {/* ── Bottom block: subtitle + form (bottom on mobile) ── */}
+          <div className="lh-bottom-block">
           <p className="lh-sub">
             Fair, data-backed offers and flexible solutions&nbsp;—&nbsp;designed around your situation.
           </p>
@@ -185,11 +215,12 @@ export default function LuxuryHeroSlide({ isActive, image, searchAddress, setSea
                   onClick={onSearch}
                   disabled={!searchAddress.trim()}
                 >
-                  Get Your Cash Offer
+                  Start Now
                 </button>
               </div>
             </div>
           </div>
+          </div>{/* end lh-bottom-block */}
         </div>
 
         {/* ─── RIGHT PANEL – image with soft blurry left edge ─── */}

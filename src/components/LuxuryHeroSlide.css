@@ -130,8 +130,8 @@
   flex: 0 0 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 110px 48px 60px 72px;
+  justify-content: flex-start;
+  padding: 90px 48px 60px 72px;
 }
 
 .lh-logo {
@@ -146,52 +146,54 @@
   display: flex;
   flex-direction: column;
   gap: 1px;
-  margin-bottom: 10px;
-  min-height: 268px;
+  margin-bottom: 6px;
+  min-height: max(100px, 10.2vw);
 }
 
 .lhw {
   display: block;
-  font-family: 'Arial', Arial, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 700;
   line-height: 1.12;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-size: clamp(1rem, 3vw, 3.2rem);
 }
 
-/* "Sell Your Home", "With", "and" — dark charcoal */
+/* "Sell Your Home With", "and" — dark charcoal */
 .lhw-small {
-  font-size: 2rem;
   color: #1C1C1C;
-  letter-spacing: 0.6px;
   text-shadow:
     2px 3px 8px rgba(0, 0, 0, 0.22),
     0px 1px 2px rgba(0, 0, 0, 0.14);
 }
 
-.lhw-large {
-  font-size: 3.8rem;
-  letter-spacing: 1.8px;
-}
 
-/* "Clarity" — coral with warm glow */
+/* "Clarity" — coral with dark outline */
 .lhw-clarity {
   color: #FF7F50;
+  -webkit-text-stroke: 2px #1C1C1C;
   text-shadow:
     3px 4px 10px rgba(0, 0, 0, 0.18),
     0 0 22px rgba(255, 127, 80, 0.55),
     0 0 50px rgba(255, 127, 80, 0.24);
 }
 
-/* "Confidence" — deep teal with teal glow (visible on cream bg) */
+/* "Confidence" — deep teal with dark outline */
 .lhw-confidence {
   color: #0F4C4C;
-  -webkit-text-stroke: 0;
-  text-stroke: 0;
+  -webkit-text-stroke: 2px #1C1C1C;
   text-shadow:
     3px 4px 10px rgba(0, 0, 0, 0.18),
     0 0 22px rgba(15, 76, 76, 0.35),
     0 0 50px rgba(15, 76, 76, 0.14);
+}
+
+/* "Clarity and" inline row */
+.lh-inline-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
 }
 
 /* Blinking coral cursor */
@@ -204,14 +206,14 @@
 }
 
 .lh-cur--on  { opacity: 1; }
-.lh-cur--end { font-size: 3.8rem; margin-left: 2px; }
+.lh-cur--end { font-size: clamp(1rem, 3vw, 3.2rem); margin-left: 2px; }
 
 /* ── Subtitle ───────────────────────────────────────── */
 .lh-sub {
   font-family: 'Comfortaa', cursive;
   font-size: 0.96rem;
   font-weight: 500;
-  color: #4A4A4A;
+  color: #1C1C1C;
   line-height: 1.78;
   margin: 0 0 14px;
   max-width: 400px;
@@ -354,34 +356,22 @@
 
 /* 1920px+ – Large monitors */
 @media (min-width: 1920px) {
-  .lh-left     { padding: 130px 56px 80px 110px; }
+  .lh-left     { padding: 90px 56px 80px 110px; }
   .lh-logo     { width: 224px; }
-  .lhw-small   { font-size: 2.4rem; }
-  .lhw-large   { font-size: 4.6rem; }
-  .lh-headline { min-height: 334px; }
   .lh-sub      { font-size: 1.08rem; max-width: 470px; }
-  .lh-cur--end { font-size: 4.6rem; }
 }
 
 /* 1440–1919px – Large laptops */
 @media (min-width: 1440px) and (max-width: 1919px) {
-  .lh-left     { padding: 110px 46px 60px 90px; }
+  .lh-left     { padding: 90px 46px 60px 90px; }
   .lh-logo     { width: 198px; }
-  .lhw-small   { font-size: 2.1rem; }
-  .lhw-large   { font-size: 4rem; }
-  .lh-headline { min-height: 296px; }
-  .lh-cur--end { font-size: 4rem; }
 }
 
 /* 1024–1439px – Standard laptops */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .lh-left     { padding: 90px 36px 50px 60px; }
   .lh-logo     { width: 158px; }
-  .lhw-small   { font-size: 1.65rem; }
-  .lhw-large   { font-size: 3.3rem; }
-  .lh-headline { min-height: 240px; }
   .lh-sub      { font-size: 0.88rem; }
-  .lh-cur--end { font-size: 3.3rem; }
 }
 
 /* 768–1023px – Tablets */
@@ -389,25 +379,77 @@
   .lh-left     { flex: 0 0 52%; padding: 80px 28px 50px 40px; }
   .lh-right    { flex: 0 0 48%; }
   .lh-logo     { width: 138px; }
-  .lhw-small   { font-size: 1.4rem; }
-  .lhw-large   { font-size: 2.6rem; }
-  .lh-headline { min-height: 196px; }
   .lh-sub      { font-size: 0.82rem; }
-  .lh-cur--end { font-size: 2.6rem; }
 }
 
-/* Below 768px – Mobile: image goes behind as dim bg */
+/* Below 768px – Mobile: top hero block + bottom content block */
 @media (max-width: 767px) {
-  .lh-inner {
-    flex-direction: column;
-  }
+  .lh-inner        { flex-direction: column; }
+
   .lh-left {
-    flex: none;
+    flex: 1;
     width: 100%;
-    padding: 90px 24px 40px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     position: relative;
     z-index: 3;
   }
+
+  /* Top block — logo + headline fills >50% of screen */
+  .lh-hero-block {
+    min-height: 58vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 72px 24px 16px;
+  }
+
+  .lh-logo {
+    width: 240px;
+    margin-bottom: 22px;
+  }
+
+  .lh-headline {
+    align-items: center;
+    min-height: 62vw;
+  }
+
+  .lhw {
+    font-size: clamp(2.2rem, 11vw, 4rem);
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .lh-inline-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .lh-btn {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Bottom block — description + form */
+  .lh-bottom-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 24px 32px;
+  }
+
+  .lh-sub {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .lh-form { width: 100%; }
+
   .lh-right {
     flex: none;
     position: absolute;
@@ -416,28 +458,18 @@
     opacity: 0.15;
   }
   .lh-right::before { display: none; }
-  .lh-logo     { width: 118px; }
-  .lhw-small   { font-size: 1.3rem; }
-  .lhw-large   { font-size: 2.2rem; }
-  .lh-headline { min-height: 175px; }
-  .lh-cur--end { font-size: 2.2rem; }
-  .lh-glow-tl  { width: 360px; height: 360px; }
-  .lh-glow-tr  { width: 260px; height: 260px; }
+  .lh-glow-tl { width: 360px; height: 360px; }
+  .lh-glow-tr { width: 260px; height: 260px; }
 }
 
 /* 479px and below */
 @media (max-width: 479px) {
-  .lh-left     { padding: 80px 16px 32px; }
-  .lh-logo     { width: 100px; }
-  .lhw-small   { font-size: 1.1rem; }
-  .lhw-large   { font-size: 1.95rem; }
-  .lh-headline { min-height: 155px; }
-  .lh-cur--end { font-size: 1.95rem; }
+  .lh-hero-block   { padding: 64px 20px 12px; }
+  .lh-logo         { width: 200px; }
+  .lh-bottom-block { padding: 10px 20px 28px; }
 }
 
 /* 359px and below */
 @media (max-width: 359px) {
-  .lhw-small   { font-size: 0.98rem; }
-  .lhw-large   { font-size: 1.68rem; }
-  .lh-cur--end { font-size: 1.68rem; }
+  .lh-logo { width: 170px; }
 }
