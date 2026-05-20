@@ -28,6 +28,8 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [agreedToMarketing, setAgreedToMarketing] = useState(false);
 
   // Listen for addressSearch event from HeroSection
   useEffect(() => {
@@ -298,17 +300,50 @@ const ContactForm = () => {
                 />
               </div>
 
+              <div className="form-checkbox-group">
+                <label className="form-checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={agreedToTerms}
+                    onChange={e => setAgreedToTerms(e.target.checked)}
+                  />
+                  <span>
+                    I agree to the{' '}
+                    <a href="#terms" onClick={(e) => { e.preventDefault(); window.openTermsModal && window.openTermsModal(); }}>Terms &amp; Conditions</a>
+                    {' '}and{' '}
+                    <a href="#privacy" onClick={(e) => { e.preventDefault(); window.openPrivacyModal && window.openPrivacyModal(); }}>Privacy Policy</a>.
+                  </span>
+                </label>
+
+                <label className="form-checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={agreedToMarketing}
+                    onChange={e => setAgreedToMarketing(e.target.checked)}
+                  />
+                  <span>
+                    By submitting this form, you agree to receive Marketing Messages updates about property
+                    offers and related services and/or calls and/or emails from Max House Buyer. Message
+                    frequency varies. Reply STOP to unsubscribe. Msg &amp; data rates may apply for SMS.
+                    Your information is secure and will not be sold to third parties. Text HELP for HELP,
+                    text STOP to cancel.
+                  </span>
+                </label>
+              </div>
+
               <div className="consent-note">
                 <strong>Important Notice:</strong> By submitting this form, you agree to be contacted by GuidedPath Home via call, email, and text regarding your property inquiry. Message and data rates may apply. Consent is not required to receive an offer or sell your property. You may opt out at any time by replying STOP.
               </div>
 
-              <button 
-                type="submit" 
-                className="submit-button"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Submitting...' : 'Get My Cash Offer Now'}
-              </button>
+              {agreedToTerms && agreedToMarketing && (
+                <button
+                  type="submit"
+                  className="submit-button"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Submitting...' : 'Get My Cash Offer Now'}
+                </button>
+              )}
 
               {submitStatus === 'success' && (
                 <div className="success-message">
@@ -322,10 +357,6 @@ const ContactForm = () => {
                 </div>
               )}
 
-              <p className="form-privacy">
-                By submitting this form, you agree to our <a href="#terms" onClick={(e) => { e.preventDefault(); window.openTermsModal && window.openTermsModal(); }}>Terms of Service</a> and <a href="#privacy" onClick={(e) => { e.preventDefault(); window.openPrivacyModal && window.openPrivacyModal(); }}>Privacy Policy</a>. 
-                We respect your privacy and will never share your information.
-              </p>
             </form>
           </div>
         </div>

@@ -98,55 +98,22 @@ export default function LuxuryHeroSlide({ isActive, image, searchAddress, setSea
   return (
     <div className="lh-slide">
       {/* Glossy corner glow effects */}
-      <div className="lh-glow lh-glow-tl" />
       <div className="lh-glow lh-glow-tr" />
-      <div className="lh-glow lh-glow-bl" />
       <div className="lh-glow lh-glow-br" />
       {/* Ambient orbs */}
       <div className="lh-orb lh-orb-1" />
       <div className="lh-orb lh-orb-2" />
 
-      {/* Hexagon texture — bottom-left corner */}
-      <svg
-        className="lh-hex-texture"
-        viewBox={`0 0 ${SVG_SZ} ${SVG_SZ}`}
-        xmlns="http://www.w3.org/2000/svg"
-        overflow="hidden"
-        aria-hidden="true"
-      >
-        <defs>
-          {/* Radial fade: solid at bottom-left corner, transparent outward */}
-          <radialGradient id="lhHexFade" cx="0%" cy="100%" r="100%" gradientUnits="objectBoundingBox">
-            <stop offset="0%"   stopColor="white" stopOpacity="1"   />
-            <stop offset="42%"  stopColor="white" stopOpacity="0.70" />
-            <stop offset="68%"  stopColor="white" stopOpacity="0.18" />
-            <stop offset="86%"  stopColor="white" stopOpacity="0"    />
-          </radialGradient>
+      {/* Top-left corner glow layers */}
+      <div className="lh-corner lh-corner-tl lh-corner-tl-1" />
+      <div className="lh-corner lh-corner-tl lh-corner-tl-2" />
+      <div className="lh-corner lh-corner-tl lh-corner-tl-3" />
 
-          <mask id="lhHexMask">
-            <rect width={SVG_SZ} height={SVG_SZ} fill="url(#lhHexFade)" />
-          </mask>
+      {/* Bottom-left corner glow layers */}
+      <div className="lh-corner lh-corner-bl lh-corner-bl-1" />
+      <div className="lh-corner lh-corner-bl lh-corner-bl-2" />
+      <div className="lh-corner lh-corner-bl lh-corner-bl-3" />
 
-          {/* Gold glow filter */}
-          <filter id="lhGoldGlow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        {/* Teal hexagons */}
-        <g mask="url(#lhHexMask)" stroke="#0F4C4C" strokeWidth="0.9" fill="none" strokeOpacity="0.38">
-          {TEAL_CELLS.map((h, i) => <path key={i} d={h.d} />)}
-        </g>
-
-        {/* Gold glowing hexagons */}
-        <g mask="url(#lhHexMask)" stroke="#F1C40F" strokeWidth="1.4" fill="none" strokeOpacity="0.82" filter="url(#lhGoldGlow)">
-          {GOLD_CELLS.map((h, i) => <path key={i} d={h.d} />)}
-        </g>
-      </svg>
 
       <div className="lh-inner">
         {/* ─── LEFT PANEL ─── */}
@@ -199,12 +166,13 @@ export default function LuxuryHeroSlide({ isActive, image, searchAddress, setSea
           </div>
           </div>{/* end lh-hero-block */}
 
-          {/* ── Bottom block: subtitle + form (bottom on mobile) ── */}
-          <div className="lh-bottom-block">
+          {/* ── Subtitle — sits between headline and form ── */}
           <p className="lh-sub">
-            Fair, data-backed offers and flexible solutions&nbsp;—&nbsp;designed around your situation.
+            Real Estate Solutions Designed Around Your Needs
           </p>
 
+          {/* ── Bottom block: form (bottom on mobile) ── */}
+          <div className="lh-bottom-block">
           <div className="lh-form">
             <div style={{ position: 'relative', width: '100%', maxWidth: 400 }}>
               <AddressFields onAddressChange={setSearchAddress} />

@@ -11,32 +11,32 @@ const ImageSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    {
-      id: 1,
-      title: "Sell Your Home With Clarity and Confidence",
-      subtitle: "Fair, Data-backed, Offers and Flexible Solutions — designed around your situation.",
-      description: "— designed around your situation.",
-      buttonText: "Get Your Cash Offer",
-      image: "/homepic.jpg",
-      logo_image: "/hero2.png",
-      logo_text: "/logo_text.png"
-    },
-    {
-      id: 2,
-      type: "split",
-      titleSmall1: "Sell Your Home",
-      titleSmall1b: "With",
-      titleLarge1: "Clarity",
-      titleSmall2: "and",
-      titleLarge2: "Confidence",
-      subtitle: "Fair, Data-backed, Offers and Flexible Solutions — designed around your situation.",
-      image: "/homepic.jpg",
-      logo_image: "/guidedpathlogo.png",
-    },
+    // {
+    //   id: 1,
+    //   title: "Sell Your Home With Clarity and Confidence",
+    //   subtitle: "Fair, Data-backed, Offers and Flexible Solutions — designed around your situation.",
+    //   description: "— designed around your situation.",
+    //   buttonText: "Get Your Cash Offer",
+    //   image: "/homepic.jpg",
+    //   logo_image: "/hero2.png",
+    //   logo_text: "/logo_text.png"
+    // },
+    // {
+    //   id: 2,
+    //   type: "split",
+    //   titleSmall1: "Sell Your Home",
+    //   titleSmall1b: "With",
+    //   titleLarge1: "Clarity",
+    //   titleSmall2: "and",
+    //   titleLarge2: "Confidence",
+    //   subtitle: "Fair, Data-backed, Offers and Flexible Solutions — designed around your situation.",
+    //   image: "/homepic.jpg",
+    //   logo_image: "/guidedpathlogo.png",
+    // },
     {
       id: 3,
       type: "luxury",
-      image: "/whyselltous3.png",
+      image: "/homepic.jpg",
     },
     // {
     //   id: 2,
