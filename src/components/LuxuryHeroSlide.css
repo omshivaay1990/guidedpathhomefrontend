@@ -222,7 +222,7 @@
 }
 
 .lh-logo {
-  width: 182px;
+  width: 240px;
   height: auto;
   margin-bottom: 24px;
   filter: drop-shadow(0 4px 12px rgba(255, 127, 80, 0.20));
@@ -482,20 +482,20 @@
 /* 1920px+ – Large monitors */
 @media (min-width: 1920px) {
   .lh-left     { padding: 90px 56px 80px 110px; }
-  .lh-logo     { width: 224px; }
+  .lh-logo     { width: 300px; }
   .lh-sub      { font-size: 1.08rem; max-width: 470px; }
 }
 
 /* 1440–1919px – Large laptops */
 @media (min-width: 1440px) and (max-width: 1919px) {
   .lh-left     { padding: 90px 46px 60px 90px; }
-  .lh-logo     { width: 198px; }
+  .lh-logo     { width: 260px; }
 }
 
 /* 1024–1439px – Standard laptops */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .lh-left     { padding: 90px 36px 50px 60px; }
-  .lh-logo     { width: 158px; }
+  .lh-logo     { width: 210px; }
   .lh-sub      { font-size: 0.88rem; }
 }
 

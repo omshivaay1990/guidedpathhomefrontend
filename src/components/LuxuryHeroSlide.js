@@ -120,7 +120,7 @@ export default function LuxuryHeroSlide({ isActive, image, searchAddress, setSea
         <div className="lh-left">
           {/* ── Hero block: logo + animated headline (top on mobile) ── */}
           <div className="lh-hero-block">
-          <img src="/guidedpathlogo.png" alt="GuidedPath Homes" className="lh-logo" />
+          <img src="/guidedpathhome_logo.png" alt="GuidedPath Homes" className="lh-logo" />
 
           <div className="lh-headline" aria-label="Sell Your Home With Clarity and Confidence">
             {/* Row 1: "Sell Your Home" + "With" — inline on desktop, stacked on mobile */}
